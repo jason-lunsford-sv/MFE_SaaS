@@ -1,0 +1,36 @@
+name: deploy-container
+
+on: 
+  push: 
+    branches: 
+      - master
+      - main
+    paths:
+      - 'container/**'
+
+defaults:
+  run:
+    working-directory: container
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Git Checkout
+      - uses: actions/checkout@v2
+
+      - name: Install Dependencies
+      - run: npm install
+
+      - name: Build Container MFE
+      - run: npm run build
+
+      - name: Push to deploy branch
+      - uses: s0/git-publish-subdir-action@develop
+      - env:
+          REPO: self
+          BRANCH: build
+          FOLDER: dist
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MESSAGE: "Build: ({sha}) {msg}"
