@@ -14,7 +14,7 @@ const prodConfig = {
         new ModuleFederationPlugin({
             name: 'container',
             remotes: {
-                marketing: `marketing@marketing/remoteEntry.js`
+                marketing: `marketing@https://mfe-marketing-1.netlify.app/marketing/remoteEntry.js`
             },
             shared: packageJson.dependencies
         }),
