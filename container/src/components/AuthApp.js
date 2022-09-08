@@ -10,7 +10,7 @@ export default () => {
     useEffect(() => {
         // create Auth MFE here
         const { onParentNavigate } = mount(ref.current, {
-            initialPath: history.location.pathname, // give the Memory Router an init location (Auth MFE)
+            initialPath: history.location.pathname, // give the Memory Router in the Auth MFE an init location
             onNavigate: ({ pathname: nextPathname }) => {
                 const { pathname } = history.location;
 
