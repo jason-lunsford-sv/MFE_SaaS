@@ -3,13 +3,14 @@ import { useHistory } from 'react-router-dom';
 
 import { mount } from 'auth/AuthApp';
 
-export default () => {
+export default ({ onSignIn }) => {
     const ref = useRef(null);
     const history = useHistory();
 
     useEffect(() => {
         // create Auth MFE here
         const { onParentNavigate } = mount(ref.current, {
+            onSignIn,
             initialPath: history.location.pathname, // give the Memory Router in the Auth MFE an init location
             onNavigate: ({ pathname: nextPathname }) => {
                 const { pathname } = history.location;
