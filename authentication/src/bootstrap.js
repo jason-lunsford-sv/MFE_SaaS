@@ -31,7 +31,7 @@ const mount = (element, { onNavigate, defaultHistory, initialPath }) => {
 };
 
 if (process.env.NODE_ENV === 'development') {
-    const devRoot = document.querySelector('#marketing-dev-root');
+    const devRoot = document.querySelector('#auth-dev-root');
 
     if (devRoot) {
         // defaultHistory allows us to update the url path in the browser when the
