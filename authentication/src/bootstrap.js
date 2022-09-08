@@ -4,6 +4,7 @@ import { createMemoryHistory, createBrowserHistory } from 'history';
 
 import App from './App';
 
+// onNavigate, defaultHistory, initialPath, and onSignIn comes from Container, when mount() is called with config object
 const mount = (element, { onNavigate, defaultHistory, initialPath, onSignIn }) => {
     const history = defaultHistory || createMemoryHistory({
         initialEntries: [initialPath]

@@ -12,11 +12,10 @@ const prodConfig = {
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: 'container',
-            remotes: {
-                marketing: `marketing@https://mfe-marketing-1.netlify.app/remoteEntry.js`,
-                auth: 'auth@https://mfe-auth-1.netlify.app/remoteEntry.js',
-                dashboard: 'dashboard@https://mfe-dashboard-1.netlify.app/remoteEntry.js'
+            name: 'dashboard',
+            filename: 'remoteEntry.js',
+            exposes: {
+                './DashboardApp': './src/bootstrap'
             },
             shared: packageJson.dependencies
         }),
